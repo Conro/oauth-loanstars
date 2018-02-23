@@ -71,7 +71,7 @@ router.route('/oauth2/authorize')
 
 // Create endpoint handlers for oauth2 token
 router.route('/oauth2/token')
-  .post(authController.isClientAuthenticated, oauth2Controller.token);
+  .post(oauth2Controller.token);
 
 // Register all our routes with /api
 app.use('/api', router);
