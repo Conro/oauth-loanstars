@@ -18,8 +18,6 @@ var UserSchema = new mongoose.Schema({
 // Execute before each user.save() call
 UserSchema.pre('save', function(next) {
   var user = this;
-  console.log("In user pre save----------------")
-  console.log(user);
   // Break out if the password hasn't changed
   if (!user.isModified('password')) return callback();
 
@@ -28,7 +26,6 @@ UserSchema.pre('save', function(next) {
   var hash = bcrypt.hashSync(user.password, salt);
 
   user.password = hash;
-  console.log("User after hash----------------")
   next();
   /*
 
@@ -44,11 +41,7 @@ UserSchema.pre('save', function(next) {
 });
 
 UserSchema.methods.verifyPassword = function(password, cb) {
-  console.log("In password compare")
   var isMatch = bcrypt.compareSync(password, this.password)
-  console.log(password);
-  console.log(this.password);
-  console.log(isMatch);
   return isMatch;
 };
 
