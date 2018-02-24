@@ -20,7 +20,7 @@ mongoose.connect('mongodb://conor1123:test123@testcluster-shard-00-00-h2vrz.mong
 // Create our Express application
 var app = express();
 
-app.use(morgan('combined'));
+//app.use(morgan('combined'));
 
 // Set view engine to ejs
 app.set('view engine', 'ejs');

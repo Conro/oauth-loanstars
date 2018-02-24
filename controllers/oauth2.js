@@ -64,6 +64,25 @@ server.grant(oauth2orize.grant.code(function(client, redirectUri, user, ares, ca
   });
 }));
 
+//Implicit Grant
+/*
+server.grant(oauth2orize.grant.token(function (client, user, ares, done) {
+
+  var token = new Token({
+    value: uid(256),
+    clientId: client._id,
+    userId: user._id
+  });
+
+  console.log(token);
+
+  token.save(function (err) {
+    if (err) { return done(err); }
+
+    return done(null, token)
+  });
+}))
+*/
 // Exchange authorization codes for access tokens.  The callback accepts the
 // `client`, which is exchanging `code` and any `redirectUri` from the
 // authorization request for verification.  If these values are validated, the
@@ -104,7 +123,7 @@ server.exchange(oauth2orize.exchange.code(function(client, code, redirectUri, ca
       token.save(function (err) {
         if (err) { return callback(err); }
 
-        callback(null, token);
+        callback(null, token.value);
       });
     });
   });
@@ -137,7 +156,6 @@ exports.authorization = [
   }),
   function(req, res){
     res.render('dialog', { transactionID: req.oauth2.transactionID, user: req.user, client: req.oauth2.client });
-    console.log(req);
   }
 ]
 
@@ -161,7 +179,15 @@ exports.decision = [
 
 exports.token = [
   server.token(),
-  server.errorHandler()
+  server.errorHandler(),
+  function(req, res) {
+    console.log("==========REQ START==========");
+    console.log(req);
+    console.log("==========REQ END==========");
+    console.log("==========RES START==========");
+    console.log(res);
+    console.log("==========RES END==========");
+  }
 ]
 
 /**
