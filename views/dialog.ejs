@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html>
   <head>
     <title>Beer Locker</title>
@@ -36,5 +36,27 @@
         </div>
       </div>
     </form>
+  </body>
+</html>
+
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Beer Locker</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body>
+    <p>Login</p>
+
+    <form action="/api/oauth2/authorize" method="post">
+      <input name="transaction_id" type="hidden" value="<%= transactionID %>">
+      <div class="form-group">
+      <input type="submit" value="Allow" id="allow">
+      <input type="submit" value="Deny" name="cancel" id="deny">
+      </div>
+    </form>
+
   </body>
 </html>
