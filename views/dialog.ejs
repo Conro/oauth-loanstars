@@ -7,28 +7,39 @@
       body {
         background:grey;
       }
+      .heading {
+        font-size: 4.5em
+      }
+      .subHeading {
+        font-size: 4em;
+      }
+      .btn {
+        font-size: 5em;
+      }
     </style>
   </head>
   <body>
     <img class="img-fluid" src="/animatedLogo_grey.gif" alt="">
-    <h2 class="" style="text-align:center">Hi <%= user.username %>!</h1>
-    <h4 style="text-align:center"><b><%= client.name %></b> is requesting <b>full access</b> to your account.</h3>
-    <h5 style="text-align:center">Do you approve?</h4>
-
+    <h1 class="heading" style="text-align:center">Hi <%= user.username %>!</h1>
+    <h3 class="subHeading" style="text-align:center"><b><%= client.name %></b> is requesting <b>full access</b> to your account.</h3>
+    <br>
+    <h4 class="subHeading" style="text-align:center">Do you approve?</h4>
+    <br>
     <form action="/api/oauth2/authorize" method="post">
       
       <input name="transaction_id" type="hidden" value="<%= transactionID %>">
 
       <div class="container-fluid">
         <div class="row no-gutters justify-content-center">
-          <div class="col-8">
+          <div class="col-10">
             <div class="form-group">
               <input class="btn btn-success btn-block" type="submit" value="Allow" id="allow">
             </div> 
           </div>
         </div>
+        <br>  
         <div class="row no-gutters justify-content-center">
-          <div class="col-8">
+          <div class="col-10">
             <div class="form-group">
               <input class="btn btn-danger btn-block" type="submit" value="Deny" name="cancel" id="deny">
             </div>
@@ -38,27 +49,3 @@
     </form>
   </body>
 </html>
-
-<!--
-
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Beer Locker</title>
-  </head>
-  <body>
-    <p>Hi <%= user.username %>!</p>
-    <p><b><%= client.name %></b> is requesting <b>full access</b> to your account.</p>
-    <p>Do you approve?</p>
-
-    <form action="/api/oauth2/authorize" method="post">
-      <input name="transaction_id" type="hidden" value="<%= transactionID %>">
-      <div>
-      <input type="submit" value="Allow" id="allow">
-      <input type="submit" value="Deny" name="cancel" id="deny">
-      </div>
-    </form>
-
-  </body>
-</html>
--->
