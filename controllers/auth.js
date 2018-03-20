@@ -7,8 +7,8 @@ var Client = require('../models/client');
 var Token = require('../models/token');
 
 passport.use(new BasicStrategy(
-  function(email, password, callback) {
-    User.findOne({ email: email }, function (err, user) {
+  function(username, password, callback) {
+    User.findOne({ username: username }, function (err, user) {
       //console.log(password);
       console.log(user);
       if (err) { return callback(err); }
