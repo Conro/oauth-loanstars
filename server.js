@@ -25,6 +25,9 @@ var app = express();
 // Set view engine to ejs
 app.set('view engine', 'ejs');
 
+//Middleware for public stuff like images.
+app.use(express.static("public"));
+
 // Use the body-parser package in our application
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -45,37 +48,37 @@ app.use(passport.initialize());
 var router = express.Router();
 
 // Create endpoint handlers for /beers
-router.route('/beers')
+router.route('/api/beers')
   .post(authController.isAuthenticated, beerController.postBeers)
   .get(authController.isAuthenticated, beerController.getBeers);
 
 // Create endpoint handlers for /beers/:beer_id
-router.route('/beers/:beer_id')
+router.route('/api/beers/:beer_id')
   .get(authController.isAuthenticated, beerController.getBeer)
   .put(authController.isAuthenticated, beerController.putBeer)
   .delete(authController.isAuthenticated, beerController.deleteBeer);
 
 // Create endpoint handlers for /users
-router.route('/users')
+router.route('/api/users')
   .post(userController.postUsers)
   .get(userController.getUsers);
 
 // Create endpoint handlers for /clients
-router.route('/clients')
+router.route('/api/clients')
   .post(authController.isAuthenticated, clientController.postClients)
   .get(authController.isAuthenticated, clientController.getClients);
 
 // Create endpoint handlers for oauth2 authorize
-router.route('/oauth2/authorize')
+router.route('/api/oauth2/authorize')
   .get(authController.isAuthenticated, oauth2Controller.authorization)
   .post(authController.isAuthenticated, oauth2Controller.decision);
 
 // Create endpoint handlers for oauth2 token
-router.route('/oauth2/token')
+router.route('/api/oauth2/token')
   .post(authController.isClientAuthenticated, oauth2Controller.token);
 
 // Register all our routes with /api
-app.use('/api', router);
+app.use(router);
 
 // Start the server
 app.listen(port);

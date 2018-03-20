@@ -2,19 +2,39 @@
 <html>
   <head>
     <title>Beer Locker</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+      body {
+        background:grey;
+      }
+    </style>
   </head>
   <body>
-    <p>Hi <%= user.username %>!</p>
-    <p><b><%= client.name %></b> is requesting <b>full access</b> to your account.</p>
-    <p>Do you approve?</p>
+    <img class="img-fluid" src="/animatedLogo_grey.gif" alt="">
+    <h2 class="" style="text-align:center">Hi <%= user.username %>!</h1>
+    <h4 style="text-align:center"><b><%= client.name %></b> is requesting <b>full access</b> to your account.</h3>
+    <h5 style="text-align:center">Do you approve?</h4>
 
     <form action="/api/oauth2/authorize" method="post">
+      
       <input name="transaction_id" type="hidden" value="<%= transactionID %>">
-      <div>
-      <input type="submit" value="Allow" id="allow">
-      <input type="submit" value="Deny" name="cancel" id="deny">
+
+      <div class="container-fluid">
+        <div class="row no-gutters justify-content-center">
+          <div class="col-8">
+            <div class="form-group">
+              <button class="btn btn-success btn-block" type="submit" value="Allow" id="allow">Allow Access</button>
+            </div> 
+          </div>
+        </div>
+        <div class="row no-gutters justify-content-center">
+          <div class="col-8">
+            <div class="form-group">
+              <button class="btn btn-danger btn-block" type="submit" value="Deny" name="cancel" id="deny">Deny Access</button>
+            </div>
+          </div>
+        </div>
       </div>
     </form>
-
   </body>
 </html>
