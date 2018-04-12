@@ -1,5 +1,5 @@
 {
-  "name": "beerlocker",
+  "name": "oauth-loanstars",
   "main": "server.js",
   "dependencies": {
     "bcryptjs": "^2.4.3",
