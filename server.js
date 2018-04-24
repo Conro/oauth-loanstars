@@ -1,3 +1,5 @@
+import { mongo } from 'mongoose';
+
 // Load required packages
 var express = require('express');
 var mongoose = require('mongoose');
@@ -12,8 +14,9 @@ var clientController = require('./controllers/client');
 var morgan = require('morgan');
 const port = process.env.PORT || 3000
 
+////mongoose.connect('mongodb://conor1123:test123@testcluster-shard-00-00-h2vrz.mongodb.net:27017,testcluster-shard-00-01-h2vrz.mongodb.net:27017,testcluster-shard-00-02-h2vrz.mongodb.net:27017/test?ssl=true&replicaSet=testCluster-shard-0&authSource=admin');
 //mongoose.connect('mongodb://conor1123:test123@testcluster-shard-00-00-h2vrz.mongodb.net:27017,testcluster-shard-00-01-h2vrz.mongodb.net:27017,testcluster-shard-00-02-h2vrz.mongodb.net:27017/test?ssl=true&replicaSet=testCluster-shard-0&authSource=admin');
-mongoose.connect('mongodb://conor1123:test123@testcluster-shard-00-00-h2vrz.mongodb.net:27017,testcluster-shard-00-01-h2vrz.mongodb.net:27017,testcluster-shard-00-02-h2vrz.mongodb.net:27017/test?ssl=true&replicaSet=testCluster-shard-0&authSource=admin');
+mongoose.connect('mongodb://conor1123:test123@loanstars3-6-shard-00-00-h2vrz.mongodb.net:27017,loanstars3-6-shard-00-01-h2vrz.mongodb.net:27017,loanstars3-6-shard-00-02-h2vrz.mongodb.net:27017/test?ssl=true&replicaSet=Loanstars3-6-shard-0&authSource=admin');
 
 // Create our Express application
 var app = express();
