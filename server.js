@@ -1,5 +1,3 @@
-import { mongo } from 'mongoose';
-
 // Load required packages
 var express = require('express');
 var mongoose = require('mongoose');
