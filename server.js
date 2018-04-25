@@ -13,8 +13,12 @@ var morgan = require('morgan');
 const port = process.env.PORT || 3000
 
 ////mongoose.connect('mongodb://conor1123:test123@testcluster-shard-00-00-h2vrz.mongodb.net:27017,testcluster-shard-00-01-h2vrz.mongodb.net:27017,testcluster-shard-00-02-h2vrz.mongodb.net:27017/test?ssl=true&replicaSet=testCluster-shard-0&authSource=admin');
+//old free
 //mongoose.connect('mongodb://conor1123:test123@testcluster-shard-00-00-h2vrz.mongodb.net:27017,testcluster-shard-00-01-h2vrz.mongodb.net:27017,testcluster-shard-00-02-h2vrz.mongodb.net:27017/test?ssl=true&replicaSet=testCluster-shard-0&authSource=admin');
-mongoose.connect('mongodb://conor1123:test123@loanstars3-6-shard-00-00-h2vrz.mongodb.net:27017,loanstars3-6-shard-00-01-h2vrz.mongodb.net:27017,loanstars3-6-shard-00-02-h2vrz.mongodb.net:27017/test?ssl=true&replicaSet=Loanstars3-6-shard-0&authSource=admin');
+//new paid
+//mongoose.connect('mongodb://conor1123:test123@loanstars3-6-shard-00-00-h2vrz.mongodb.net:27017,loanstars3-6-shard-00-01-h2vrz.mongodb.net:27017,loanstars3-6-shard-00-02-h2vrz.mongodb.net:27017/test?ssl=true&replicaSet=Loanstars3-6-shard-0&authSource=admin');
+//new free
+mongoose.connect("mongodb://test:test@loanstars-free-36-shard-00-00-q3fyp.mongodb.net:27017,loanstars-free-36-shard-00-01-q3fyp.mongodb.net:27017,loanstars-free-36-shard-00-02-q3fyp.mongodb.net:27017/test?ssl=true&replicaSet=Loanstars-Free-36-shard-0&authSource=admin");
 
 // Create our Express application
 var app = express();
